@@ -7,5 +7,7 @@ tests/__pycache__
 .vscode
 poetry.lock
 poetry.toml
-.db
-.log
+*.db
+*.log
+migrations/__pycache__
+migrations/versions/__pycache__

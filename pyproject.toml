@@ -6,6 +6,7 @@ version = "0.1.0"
 
 [tool.poetry.dependencies]
 SQLAlchemy = "^1.4.46"
+SQLAlchemy-Utils = "^0.39.0"
 alembic = "^1.9.2"
 fastapi = "^0.89.1"
 pydantic = "^1.10.4"
