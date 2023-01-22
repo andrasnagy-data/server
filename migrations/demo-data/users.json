@@ -1,0 +1,22 @@
+[
+    {
+        "first_name": "Mate",
+        "last_name": "Nagy",
+        "email": "mate@nagy.dk"
+    },
+    {
+        "first_name": "Sara",
+        "last_name": "Horvath",
+        "email": "sara@horvath.dk"
+    },
+    {
+        "first_name": "Andras",
+        "last_name": "Nagy",
+        "email": "andras@nagy.dk"
+    },
+    {
+        "first_name": "Lone",
+        "last_name": "Wolf",
+        "email": "lone@wolf.dk"
+    }
+]
