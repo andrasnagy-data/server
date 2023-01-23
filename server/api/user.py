@@ -2,7 +2,6 @@
 User end-point.
 """
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.engine.row import Row
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
