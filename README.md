@@ -37,6 +37,7 @@ cd server
 **With poetry:**
 ```console
 poetry install
+poetry update
 poetry run alembic upgrade head
 poetry run uvicorn server.main:app
 ```
@@ -55,5 +56,5 @@ Open a browser and navigate to: http://127.0.0.1:8000/docs (there are 4 users in
 # Clean up
 ```console
 cd ..
-rm -r server
+rm -f -r server
 ```
