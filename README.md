@@ -50,7 +50,7 @@ alembic upgrade head
 python uvicorn server.main:app
 ```
 
-Open a browser and navigate to: http://127.0.0.1:8000/docs
+Open a browser and navigate to: http://127.0.0.1:8000/docs (there are 4 users in the database!)
 
 # Clean up
 ```console
