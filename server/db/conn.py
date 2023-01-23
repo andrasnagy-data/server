@@ -1,12 +1,17 @@
 """
 Database connection setup.
 """
+import os
+
+from dotenv import find_dotenv, load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-DATABASE_CONN_STRING: str = "sqlite+pysqlite:///demo.db"
+load_dotenv(find_dotenv())
 
-engine = create_engine(DATABASE_CONN_STRING, echo=True, future=True)
+DB_CONN_STRING: str = os.environ.get("DB_CONN_STRING")
+
+engine = create_engine(DB_CONN_STRING, echo=True, future=True)
 SessionLocal = sessionmaker(
     autocommit=False, autoflush=False, bind=engine, future=True
 )
