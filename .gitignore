@@ -13,3 +13,4 @@ migrations/__pycache__
 migrations/versions/__pycache__
 .pytest_cache
 .coverage
+docs/server/__pycache__.html
