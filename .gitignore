@@ -11,3 +11,5 @@ poetry.toml
 *.log
 migrations/__pycache__
 migrations/versions/__pycache__
+.pytest_cache
+.coverage
