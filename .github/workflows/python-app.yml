@@ -25,7 +25,7 @@ jobs:
         with:
           poetry-version: "1.2.0"
       - name: Install Dependencies
-        run: poetry install
+        run: poetry install --with test
       - name: Run Tests
         run: |
           poetry run pytest --version
