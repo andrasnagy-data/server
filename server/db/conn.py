@@ -7,6 +7,7 @@ from dotenv import find_dotenv, load_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
+# I would prefer to use google cloud secret manager to store sensitive info
 load_dotenv(find_dotenv())
 
 DB_CONN_STRING: str = os.environ.get("DB_CONN_STRING")
