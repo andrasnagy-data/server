@@ -1,8 +1,7 @@
-# Python web app
-FastAPI web application (based on a sqlite db) with an endpoint that shows a user's followers.
+# README
 
-# Database schema
-![image](docs/images/demo-database.png)
+# Database ER diagram
+![image](docs/images/ER_diagram.png)
 
 # Follow up questions
 1. What are potential pitfalls when expanding on your solution?
