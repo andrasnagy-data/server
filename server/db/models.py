@@ -18,6 +18,7 @@ class User(Base):
     first_name = Column(String, nullable=False)
     last_name = Column(String, nullable=False)
     email = Column(EmailType, nullable=False)
+    version = Column(Integer, nullable=False)
 
 
 # association table

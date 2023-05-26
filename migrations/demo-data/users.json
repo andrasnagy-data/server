@@ -2,21 +2,25 @@
     {
         "first_name": "Mate",
         "last_name": "Nagy",
-        "email": "mate@nagy.dk"
+        "email": "mate@nagy.dk",
+        "version": 1
     },
     {
         "first_name": "Sara",
         "last_name": "Horvath",
-        "email": "sara@horvath.dk"
+        "email": "sara@horvath.dk",
+        "version": 1
     },
     {
         "first_name": "Andras",
         "last_name": "Nagy",
-        "email": "andras@nagy.dk"
+        "email": "andras@nagy.dk",
+        "version": 1
     },
     {
         "first_name": "Lone",
         "last_name": "Wolf",
-        "email": "lone@wolf.dk"
+        "email": "lone@wolf.dk",
+        "version": 1
     }
 ]

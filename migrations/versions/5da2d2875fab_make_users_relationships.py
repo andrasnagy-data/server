@@ -1,8 +1,8 @@
-"""Create user & relationships tables; populate tables with demo data.
+"""make users & relationships
 
-Revision ID: 0113c63ff08e
-Revises: 
-Create Date: 2023-01-22 20:01:31.482641
+Revision ID: 5da2d2875fab
+Revises: András Nagy
+Create Date: 2023-04-27 23:47:02.025554
 
 """
 from json import loads
@@ -35,6 +35,7 @@ def upgrade() -> None:
             sqlalchemy_utils.types.email.EmailType(length=255),
             nullable=False,
         ),
+        sa.Column("version", sa.Integer(), nullable=False),
         sa.PrimaryKeyConstraint("id"),
     )
     op.create_index(op.f("ix_user_id"), "user", ["id"], unique=False)

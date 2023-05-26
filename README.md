@@ -1,29 +1,35 @@
-# Python web app
-FastAPI web application (based on a sqlite db) with an endpoint that shows a user's followers.
+# README
 
-# Database schema
-![image](docs/images/demo-database.png)
+# Database ER diagram
+![image](docs/images/ER_diagram.png)
 
 # Follow up questions
 1. What are potential pitfalls when expanding on your solution?
-
-One pitfall is the fact, that the domain points directly to the web server (not to a load balancer). Another pitfall is the fact, that it is not possible to scale "components" separately (e.g. scale only the database "component"). Currently, the size of the application is not a problem, but as/when the project grows, the size can become a problem: slower deployment. Moreover, it is important to mention that the project relies on third-party libraries, therefore, any error (highly unlikely, as the libraries are well maintained and tested) can introduce errors in the project. Lastly, "code base complexity" can become an issue when expanding monolithic applications.
+Limitations:
+- the hardware on which the application, along with the database, is deployed
+- it is not possible to have asynchronous communication between the database and the application (no async driver for sqlite)
 
 2. How big would your solution scale to, and what would you do at that point?
 
-As mentioned above, the application architecture is a major limiting factor of scaling. However, if the app was deployed as a managed cloud service (e.g. on Google Cloud Run) with a load balancer (so that horizontal scaling is possible), the solution could (auto-)scale reasonably. Another limiting factor is the fact that one database serves the application. In the case when the database was "over-loaded", and I exhausted all the "typical" optimizing steps (optimizing queries, caching query results) without an acceptable improvement, I would create read replica(s) of the database. The price of this approach is that the data returned could be lacking some -newly added- information. However, if the data must be correct, I would query the main database.
-Lastly, if needed, the database could be factored out into a service on its own. Then, the two services could be scaled independently, according to their load.
+My solution's scaling capability is very much limited by the hardware on which it is run. When it reaches a point where the time it takes to process a request or requests are dropped, I would refactor my solution: I would deploy the application on one machine, and would deploy the database on a different machine. Moreover, I would replace the sqlite database with a postgresql database, use "asyncpg" as my database driver, and make the endpoint asynchronous.
+
+If further scaling is needed, the application can be deployed on a cluster with a load balancer in front, as the app is stateless, so it can be "replicated freely". As for the database, I would employ the "master/slave replication" pattern, as the application is a "read-heavy"; the app reads data more frequently. This solution would come at the cost of consistency; it takes time to propagate changes to data to the "slave" instances.
+
+Lastly, I did not mention the most straight forward solution for "slow app". When the application performs below the "acceptable level", I could just deploy the whole setup on a machine with more CPU, RAM, and storage. However, this is not a sustainable solution, therefore I would prefer not to do this.
+
 
 3. How would you modify your implementation to support other types of followers than just Users?
 
-*What would I do to allow brands to follow users?* I would create an Enum called UserType, then I would add a column to the User table, called user_type, that is of type UserType.
+*What would I do to allow brands to follow users?*
+I would create an Enum called UserType, then I would add a column to the User table, called user_type, that is of type UserType. No further modification is necessary.
+
 ```python
 class UserType(enum.IntEnum):
     person = 1
     brand = 2
 
 class User(Base):
-    # all the existing attributes
+    # all the existing fields
     user_type = Column(Enum(UserType))
 ```
 
