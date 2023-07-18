@@ -1,7 +1,6 @@
 # README
 
 Work in progress.
-
-# Database ER diagram
-![image](docs/images/ER_diagram.png)
-
+To do:
+  - github actions build-test-deploy.yml workflow
+  - re-create documentation
