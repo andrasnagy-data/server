@@ -8,3 +8,4 @@ poetry.toml
 docs/server/__pycache__.html
 .DS_Store
 .python-version
+test.py
